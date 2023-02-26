@@ -26,9 +26,9 @@ pub enum Cell {
 	Empty,
 	Shot,
 	Ship,
-	ShipOne([usize; 2]),
 	ShipTwo([usize; 4]),
 	ShipThree([usize; 6]),
+	ShipFour([usize; 8]),
 	Damage,
 	Placeholder,
 	Crosshair,
@@ -76,7 +76,7 @@ fn main() {
 
 	// the ships to be placed
 	let mut ships =
-		ShipTracker::new(config::SHIP_ONE_BLOCK_AMOUNT, config::SHIP_TWO_BLOCK_AMOUNT, config::SHIP_THREE_BLOCK_AMOUNT);
+		ShipTracker::new(config::SHIP_TWO_BLOCK_AMOUNT, config::SHIP_THREE_BLOCK_AMOUNT, config::SHIP_FOUR_BLOCK_AMOUNT);
 	let mut this_ship = ships.get_next_unset_ship().unwrap();
 	let mut ship_size = config::get_entitie_size(&this_ship);
 
