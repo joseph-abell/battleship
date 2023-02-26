@@ -3,7 +3,7 @@ use crate::Cell;
 use crate::Direction;
 use crate::Rotation;
 
-use Cell::{Crosshair, Empty, Placeholder, ShipOne, ShipThree, ShipTwo};
+use Cell::{Crosshair, Empty, Placeholder, ShipFour, ShipThree, ShipTwo};
 
 pub fn move_ship(
 	mut board: config::Board,
@@ -316,14 +316,13 @@ pub fn place_entity(
 
 		board[y][x] = match cell {
 			Cell::Ship => match ship_size {
-				1 => ShipOne([coords[0] as usize, coords[1] as usize]),
 				2 => ShipTwo([
 					coords[0] as usize,
 					coords[1] as usize,
 					coords[2] as usize,
 					coords[3] as usize,
 				]),
-				_ => ShipThree([
+				3 => ShipThree([
 					coords[0] as usize,
 					coords[1] as usize,
 					coords[2] as usize,
@@ -331,6 +330,15 @@ pub fn place_entity(
 					coords[4] as usize,
 					coords[5] as usize,
 				]),
+				_ => ShipFour([
+					coords[0] as usize,
+					coords[1] as usize,
+					coords[2] as usize,
+					coords[3] as usize,
+					coords[4] as usize,
+					coords[5] as usize,
+					coords[6] as usize,
+					coords[7] as usize,
 			},
 			_ => cell,
 		};
